@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE form-validation PUBLIC
+          "-//Apache Software Foundation//DTD Commons Validator Rules Configuration 1.1.3//EN"
+          "http://jakarta.apache.org/commons/dtds/validator_1_1_3.dtd">
+
+<form-validation>
+
+<!--
+     This is a minimal Validator form file with a couple of examples.
+-->
+
+    <global>
+
+        <!-- An example global constant
+        <constant>
+            <constant-name>postalCode</constant-name>
+            <constant-value>^\d{5}\d*$</constant-value>
+        </constant>
+        end example-->
+
+    </global>
+
+    <formset>
+
+        <!-- An example form -->
+        <form name="logonForm">
+            <field
+                property="username"
+                depends="required">
+                    <arg key="logonForm.username"/>
+            </field>
+            <field
+                property="password"
+                depends="required,mask">
+                    <arg key="logonForm.password"/>
+                    <var>
+                        <var-name>mask</var-name>
+                        <var-value>^[0-9a-zA-Z]*$</var-value>
+                    </var>
+            </field>
+        </form>
+
+    </formset>
+
+    <!-- An example formset for another locale -->
+    <formset language="fr">
+
+        <constant>
+            <constant-name>postalCode</constant-name>
+            <constant-value>^[0-9a-zA-Z]*$</constant-value>
+        </constant>
+
+        <!-- An example form -->
+        <form name="logonForm">
+            <field
+                property="username"
+                depends="required">
+                <arg key="logonForm.username"/>
+            </field>
+            <field
+                property="password"
+                depends="required,mask">
+                <arg key="logonForm.password"/>
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>^[0-9a-zA-Z]*$</var-value>
+                </var>
+            </field>
+        </form>
+
+    </formset>
+
+    <!-- An example formset for another locale -->
+    <formset>
+        <form name="UserDetailsActionForm">
+
+            <field property="roleId" depends="required">
+                <arg key="RoleId" resource="false"/>
+            </field>
+
+            <field property="userName" depends="required,email">
+                <arg key="UserName" resource="false"/>
+
+            </field>
+
+            <field property="password" depends="required,minlength,maxlength">
+                <arg0 key="Password" resource="false"/>
+                <arg1 name="minlength" key="${var:minlength}" resource="false"/>
+                <var>
+                    <var-name>minlength</var-name>
+                    <var-value>4</var-value>
+                </var>
+
+                <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>12</var-value>
+                </var>
+            </field>
+
+            <field property="phoneNumber" depends="required,mask,minlength,maxlength">
+                <arg key="PhoneNumber" resource="false"/>
+                 <arg1 name="minlength" key="${var:minlength}" resource="false"/>
+                  <var>
+                  <var-name>mask</var-name>
+                    <var-value>^[0-9]*$</var-value>
+                </var>
+                <var>
+                    <var-name>minlength</var-name>
+                    <var-value>10</var-value>
+                </var>
+
+                <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>13</var-value>
+                </var>
+            </field>
+
+            <field property="name" depends="required,mask">
+                <arg key="name" resource="false"/>
+                 <var>
+                 <var-name>mask</var-name>
+                    <var-value>^[a-zA-Z]*$</var-value>
+                </var>
+
+            </field>
+
+            <field property="address" depends="required,mask">
+                <arg key="address" resource="false"/>
+                <var>
+                <var-name>mask</var-name>
+                    <var-value>^[a-zA-Z]*$</var-value>
+                </var>
+            </field>
+        </form>
+
+        <form name="BookingActionForm">
+
+            <field property="bookingQuantity" depends="required">
+                <arg key="bookingQuantity" resource="false"/>
+            </field>
+
+        </form>
+
+        <form name="InsertPriceActionForm">
+
+
+            <field property="stateId" depends="required, integer">
+                <arg key="state" resource="false"/>
+            </field>
+
+            <field property="distictId" depends="required, integer">
+                <arg key="distict" resource="false"/>
+            </field>
+
+            <field property="regionId" depends="required, integer">
+                <arg key="region" resource="false"/>
+            </field>
+
+            <field property="vegetableId" depends="required, integer">
+                <arg key="vegetable" resource="false"/>
+            </field>
+
+            <field property="governmentPrice" depends="required, integer">
+                <arg key="governmentPrice" resource="false"/>
+            </field>
+
+            <field property="farmerPrice" depends="required, integer">
+                <arg key="farmerPrice" resource="false"/>
+            </field>
+
+            <field property="wholeSellerPrice" depends="required, integer">
+                <arg key="wholeSellerPrice" resource="false"/>
+            </field>
+
+            <field property="retailerPrice" depends="required, integer">
+                <arg key="retailerPrice" resource="false"/>
+            </field>
+        </form>
+
+        <form name="InsertDistictActionForm">
+
+            <field property="stateId" depends="required, integer">
+                <arg key="state" resource="false"/>
+            </field>
+            
+            <field property="distictName" depends="required,mask">
+                <arg key="distictName" resource="false"/>
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>^[a-zA-Z]*$</var-value>
+                </var>
+            </field>
+        </form>
+
+        <form name="InsertStateActionForm">
+            <field property="stateName" depends="required,mask">
+                <arg key="stateName" resource="false"/>
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>^[a-zA-Z]*$</var-value>
+                </var>
+            </field>
+        </form>
+
+        <form name="InsertRegionActionForm">
+            <field property="distictId" depends="required,integer">
+                <arg key="distict" resource="false"/>
+            </field>
+
+            <field property="regionName" depends="required,mask">
+                <arg key="regionName" resource="false"/>
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>^[a-zA-Z]*$</var-value>
+                </var>
+            </field>
+        </form>
+
+        <form name="InsertVegetableDetailsActionForm">
+            <field property="vegetableName" depends="required,mask">
+                <arg key="vegetableName" resource="false"/>
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>^[a-zA-Z]*$</var-value>
+                </var>
+            </field>
+        </form>
+
+        <form name="InsertVegetableQuantityActionForm">
+            <field property="vegetableQuantity" depends="required,integer">
+                <arg key="vegetableQuantity" resource="false"/>
+            </field>
+
+            <field property="vegetableId" depends="required,integer">
+                <arg key="vegetableId" resource="false"/>
+            </field>
+
+            <field property="userId" depends="required,integer">
+                <arg key="userId" resource="false"/>
+            </field>
+    
+        </form>
+
+        <form name="UpdateVegetableDetailsActionForm">
+
+            <field property="stateId" depends="required, integer">
+                <arg key="state" resource="false"/>
+            </field>
+
+            <field property="distictId" depends="required, integer">
+                <arg key="distict" resource="false"/>
+            </field>
+
+            <field property="regionId" depends="required, integer">
+                <arg key="region" resource="false"/>
+            </field>
+
+            <field property="vegetableId" depends="required, integer">
+                <arg key="vegetable" resource="false"/>
+            </field>
+    
+            <field property="governmentPrice" depends="required, integer">
+                <arg key="governmentPrice" resource="false"/>
+            </field>
+
+            <field property="farmerPrice" depends="required, integer">
+                <arg key="farmerPrice" resource="false"/>
+            </field>
+
+            <field property="wholeSellerPrice" depends="required, integer">
+                <arg key="wholeSellerPrice" resource="false"/>
+            </field>
+
+            <field property="retailerPrice" depends="required, integer">
+                <arg key="retailerPrice" resource="false"/>
+            </field>
+
+        </form>
+
+        <form name="ViewFeedBackActionForm">
+
+            <field property="typeId" depends="required, integer">
+                <arg key="FeedBacktype" resource="false"/>
+            </field>
+          
+        </form>
+
+      <form name="FeedBackActionForm">
+
+           <field property="typeId" depends="required, integer">
+                <arg key="FeedBacktype" resource="false"/>
+            </field>
+
+           <field property="feedBack" depends="required">
+                <arg key="FeedBack" resource="false"/>
+               
+            </field>
+
+      </form>
+
+      <form name="LoginDetailsActionForm">
+          <field property="userName" depends="required,email">
+              <arg key="userName" resource="false"/>
+          </field>
+
+          <field property="password" depends="required">
+              <arg key="password" resource="false"/>
+          </field>
+      </form>
+
+
+
+      <form name="AddComputerProfessionalActionForm">
+
+          <field property="userName" depends="required,email">
+                <arg key="UserName" resource="false"/>
+
+            </field>
+
+            <field property="password" depends="required,minlength,maxlength">
+                <arg0 key="Password" resource="false"/>
+                <arg1 name="minlength" key="${var:minlength}" resource="false"/>
+                <var>
+                    <var-name>minlength</var-name>
+                    <var-value>4</var-value>
+                </var>
+
+                <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>12</var-value>
+                </var>
+            </field>
+
+            <field property="phoneNumber" depends="required,mask,minlength,maxlength">
+                <arg key="PhoneNumber" resource="false"/>
+                 <arg1 name="minlength" key="${var:minlength}" resource="false"/>
+                  <var>
+                  <var-name>mask</var-name>
+                    <var-value>^[0-9]*$</var-value>
+                </var>
+                <var>
+                    <var-name>minlength</var-name>
+                    <var-value>10</var-value>
+                </var>
+
+                <arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>13</var-value>
+                </var>
+            </field>
+
+            <field property="name" depends="required,mask">
+                <arg key="name" resource="false"/>
+                 <var>
+                 <var-name>mask</var-name>
+                    <var-value>^[a-zA-Z]*$</var-value>
+                </var>
+
+            </field>
+
+            <field property="address" depends="required,mask">
+                <arg key="address" resource="false"/>
+                <var>
+                <var-name>mask</var-name>
+                    <var-value>^[a-zA-Z]*$</var-value>
+                </var>
+            </field>
+        </form>
+
+
+        <form  name="ViewUserDetailsActionForm">
+            <field property="roleId" depends="required">
+                <arg key="roleId" resource="false"/>
+            </field>
+        </form>
+
+
+          <form name="VegetableReportActionForm">
+              <field property="vegetableId" depends="required">
+                  <arg key="VegetableName" resource="false"/>
+              </field>
+          </form>
+     
+
+    </formset>
+
+</form-validation>

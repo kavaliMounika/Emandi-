@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
+
+       <struts-config>
+    <form-beans>
+        <form-bean name="UserDetailsActionForm" type="com.onlineM.ActionForm.UserDetailsActionForm"/>
+        <form-bean name="LoginDetailsActionForm" type="com.onlineM.ActionForm.LoginDetailsActionForm"/>
+        <form-bean name="InsertVegetableDetailsActionForm" type="com.onlineM.ActionForm.InsertVegetableDetailsActionForm"/>
+    </form-beans> 
+    
+    <action-mappings>
+        <action input="/UserDetails.jsp" name="UserDetailsActionForm" path="/UserDetailsAction" scope="session" type="com.onlineM.Action.UserDetailsAction">
+            <forward  name="success" path="/Login.jsp"/>
+            <forward name="notsuccess" path="/UserDetails.jsp"/>
+            
+        </action>
+         <action input="/LoginDetails.jsp" name="LoginDetailsActionForm" path="/LoginDetailsAction" scope="session" type="com.onlineM.Action.LoginDetailsAction">
+            <forward  name="success" path="/DisplayPage.jsp"/>
+            <forward  name="success1" path="/Admin.jsp"/>
+            <forward  name="success2" path="/DisplayPage.jsp"/>
+            
+            <forward name="notsuccess" path="/Login.jsp"/>
+            
+        </action>
+        
+        <action input="/InsertVegetableDetails.jsp" name="InsertVegetableDetailsActionForm" path="/InsertVegetableDetailsAction" scope="session" type="com.onlineM.Action.InsertVegetableDetailsAction">
+            <forward name="success" path="/InsertVegetableDetails.jsp"/>
+            <forward name="notsuccess" path="/InsertVegetableDetails.jsp"/>
+        </action>
+   </action-mappings>
+    
+    
+    
+    </struts-config>

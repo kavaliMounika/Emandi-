@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
+
+
+<struts-config>
+    <form-beans>
+        <form-bean name="VegetableDetailsActionForm" type="com.myapp.actionForm.VegetableDetailsActionForm"/>
+        <form-bean name="BookingActionForm" type="com.myapp.actionForm.BookingActionForm"/>
+        <form-bean name="AddComputerProfessionalActionForm" type="com.myapp.actionForm.AddComputerProfessionalActionForm"/>
+        <form-bean name="NewStrutsActionForm" type="com.myapp.actionForm.NewStrutsActionForm"/>
+        <form-bean name="ViewAvailableQuantityActionForm" type="com.myapp.actionForm.ViewAvailableQuantityActionForm"/>
+        <form-bean name="QuantityRequestActionForm" type="com.myapp.actionForm.QuantityRequestActionForm"/>
+        <form-bean name="VegetableReportActionForm" type="com.myapp.actionForm.VegetableReportActionForm"/>
+        <form-bean name="ViewUserDetailsActionForm" type="com.myapp.actionForm.ViewUserDetailsActionForm"/>
+        <form-bean name="ViewFeedBackActionForm" type="com.myapp.actionForm.ViewFeedBackActionForm"/>
+        <form-bean name="UpdateVegetableDetailsActionForm" type="com.myapp.actionForm.UpdateVegetableDetailsActionForm"/>
+        <form-bean name="InsertVegetableQuantityActionForm" type="com.myapp.actionForm.InsertVegetableQuantityActionForm"/>
+        <form-bean name="FeedBackActionForm" type="com.myapp.actionForm.FeedBackActionForm"/>
+        <form-bean name="InsertRegionActionForm" type="com.myapp.actionForm.InsertRegionActionForm"/>
+        <form-bean name="InsertDistictActionForm" type="com.myapp.actionForm.InsertDistictActionForm"/>
+        <form-bean name="InsertStateActionForm" type="com.myapp.actionForm.InsertStateActionForm"/>
+        <form-bean name="InsertVegetableDetailsActionForm" type="com.myapp.actionForm.InsertVegetableDetailsActionForm"/>
+        <form-bean name="InsertPriceActionForm" type="com.myapp.actionForm.InsertPriceActionForm"/>
+        <form-bean name="FarmerActionForm" type="com.myapp.actionForm.FarmerActionForm"/>
+        <form-bean name="DistictActionForm" type="com.myapp.actionForm.DistictActionForm"/>
+        <form-bean name="ViewPricesActionForm" type="com.myapp.actionForm.ViewPricesActionForm"/>
+        <form-bean name="LoginDetailsActionForm" type="com.myapp.actionForm.LoginDetailsActionForm"/>
+        <form-bean name="UserDetailsActionForm" type="com.myapp.actionForm.UserDetailsActionForm"/>
+    
+    </form-beans>
+    
+    <global-exceptions>
+    
+    </global-exceptions>
+
+    <global-forwards>
+        <forward name="welcome"  path="/Welcome.do"/>
+    </global-forwards>
+
+    <action-mappings>
+        <action input="/UserDetails.jsp" name="UserDetailsActionForm" path="/UserDetailsAction" scope="session" type="com.myapp.action.UserDetailsAction">
+            <forward  name="success" path="/Login.jsp"/>
+            <forward name="notsuccess" path="/UserDetails.jsp"/>
+            
+        </action>
+        <action input="/Login.jsp" name="LoginDetailsActionForm" path="/LoginDetailsAction" scope="session" type="com.myapp.action.LoginDetailsAction">
+            <forward name="success" path="/DisplayPage.jsp"/>
+            <forward name="notsuccess" path="/Login.jsp"/>
+            <forward name="success1" path="/Admin.jsp"/>
+            <forward name="success2" path="/ComputerProfessional.jsp"/>
+        </action>
+        <action input="/Booking.jsp" name="BookingActionForm" path="/BookingAction" scope="session" type="com.myapp.action.BookingAction">
+            <forward name="success" path="/DisplayPage.jsp"/>
+            <forward name="notsuccess" path="/Booking.jsp"/>
+        </action>
+      
+        <action path="/ViewPricesAction" type="com.myapp.action.ViewPricesAction">
+            <forward name="success" path="/ViewPrices.jsp"/>
+        </action>
+        <action path="/StateAction" type="com.myapp.action.StateAction" >
+            <forward name="success" path="/State.jsp"/>
+        </action>
+        <action path="/DistictAction" type="com.myapp.action.DistictAction">
+            <forward name="success" path="/Distict.jsp"/>
+        </action>
+        <action path="/RegionAction" type="com.myapp.action.RegionAction">
+            <forward name="success" path="/Region.jsp"/>
+        </action>
+        <action path="/RegionPrices" type="com.myapp.action.RegionPricesAction">
+            <forward name="success" path="/RegionPrices.jsp"/>
+        </action>
+        <action input="/RoleSelect.jsp" name="FarmerActionForm" path="/FarmerAction" scope="session" type="com.myapp.action.FarmerAction">
+            <forward name="success" path="/UserSelect.jsp"/>
+            <forward name="fail" path="/RoleSelect.jsp"/>
+        </action>
+        <action path="/BookingRequestAction" type="com.myapp.action.BookingRequestAction">
+            <forward name="success" path="/BookingRequest.jsp"/>
+            <forward name="fail" path="/BookingRequest.jsp"/>
+        </action>
+        <action path="/BookingOrdersAction" type="com.myapp.action.BookingOrdersAction">
+            <forward name="success" path="/BookingOrders.jsp"/>
+            <forward name="fail" path="/BookingOrders.jsp"/>
+
+        </action>
+        <action path="/OrderAction" type="com.myapp.action.OrderAction">
+            <forward name="success" path="/DisplayPage.jsp"/>
+        </action>
+        <action input="/InsertPrice.jsp" name="InsertPriceActionForm" path="/InsertPriceAction" scope="session" type="com.myapp.action.InsertPriceAction">
+            <forward name="success" path="/ComputerProfessional.jsp"/>
+            <forward name="notsuccess" path="/InsertPrice.jsp"/>
+        </action>
+        <action input="/InsertVegetableDetails.jsp" name="InsertVegetableDetailsActionForm" path="/InsertVegetableDetailsAction" scope="session" type="com.myapp.action.InsertVegetableDetailsAction">
+            <forward name="success" path="/InsertVegetableDetails.jsp"/>
+            <forward name="notsuccess" path="/InsertVegetableDetails.jsp"/>
+        </action>
+        <action path="/ViewVegetablesAction" type="com.myapp.action.ViewVegetablesAction">
+            <forward name="success" path="/Booking.jsp"/>
+            <forward name="notsuccess" path="/RoleSelect.jsp"/>
+
+        </action>
+
+        <action input="/InsertState.jsp" name="InsertStateActionForm" path="/InsertStateAction" scope="session" type="com.myapp.action.InsertStateAction">
+            <forward name="success" path="/InsertState.jsp"/>
+            <forward name="notsuccess" path="/InsertState.jsp"/>
+        </action>
+        <action input="/InsertDistict.jsp" name="InsertDistictActionForm" path="/InsertDistictAction" scope="session" type="com.myapp.action.InsertDistictAction">
+            <forward name="success" path="/InsertDistict.jsp"/>
+            <forward name="notsuccess" path="/InsertDistict.jsp"/>
+        </action>
+        <action input="/InsertRegion.jsp" name="InsertRegionActionForm" path="/InsertRegionAction" scope="session" type="com.myapp.action.InsertRegionAction">
+            <forward name="success" path="/InsertRegion.jsp"/>
+            <forward name="notsuccess" path="/InsertRegion.jsp"/>
+        </action>
+        <action input="/FeedBack.jsp" name="FeedBackActionForm" path="/FeedBackAction" scope="session" type="com.myapp.action.FeedBackAction">
+            <forward name="success" path="/DisplayPage.jsp"/>
+            <forward name="notsuccess" path="/FeedBack.jsp"/>
+        </action>
+        
+        <action  input="/VegetableDetails.jsp" name="VegetableDetailsActionForm" path="/Vegetables" type="com.myapp.action.Vegetables">
+            <forward name="success" path="/VegetableDetails.jsp"/>
+        </action>
+        <action path="/OrderDeclineAction" type="com.myapp.action.OrderDeclineAction">
+            <forward name="success" path="/DisplayPage.jsp"/>
+        </action>
+        <action input="/InsertVegetableQuantity.jsp" name="InsertVegetableQuantityActionForm" path="/InsertVegetableQuantityAction" scope="session" type="com.myapp.action.InsertVegetableQuantityAction">
+            <forward name="success" path="/InsertVegetableQuantity.jsp"/>
+            <forward name="notsuccess" path="/InsertVegetableQuantity.jsp"/>
+        </action>
+        <action path="/ViewVegetable1Action" type="com.myapp.action.ViewVegetable1Action">
+            <forward name="success" path="/InsertVegetableQuantity.jsp"/>
+            <forward name="notsuccess" path="/InsertVegetableQuantity.jsp"/>
+        </action>
+        <action input="/UpdateVegetableDetails.jsp" name="UpdateVegetableDetailsActionForm" path="/UpdateVegetableDetailsAction" scope="session" type="com.myapp.action.UpdateVegetableDetailsAction">
+            <forward name="success" path="/UpdateVegetableDetails.jsp"/>
+            <forward name="notsuccess" path="/UpdateVegetableDetails.jsp"/>
+        </action>
+            
+        <action input="/ViewFeedBack.jsp" name="ViewFeedBackActionForm"  path="/ViewFeedBackAction" type="com.myapp.action.ViewFeedBackAction">
+            <forward name="success" path="/ViewFeedBack.jsp"/>
+
+        </action>
+        <action input="/ViewUserDetails.jsp" name="ViewUserDetailsActionForm" path="/UserDetailsViewAction" scope="session" type="com.myapp.action.UserDetailsViewAction">
+            <forward name="success" path="/ViewUserDetails.jsp"/>
+        </action>
+        <action input="/VegetableReport.jsp" name="VegetableReportActionForm" path="/VegetableReportAction" scope="session" type="com.myapp.action.VegetableReportAction">
+            <forward name="success" path="/VegetableReport.jsp"/>
+        </action>
+        <action input="/AddComputerProfessional.jsp" name="AddComputerProfessionalActionForm" path="/AddComputerProfessionAction" scope="session" type="com.myapp.action.AddComputerProfessionalAction">
+            <forward name="success" path="/Admin.jsp"/>
+            <forward name="notsuccess" path="/AddComputerProfessional.jsp"/>
+        </action>
+        <action input="/QuantityRequest.jsp" name="QuantityRequestActionForm" path="/QuantityRequestAction" scope="session" type="com.myapp.action.QuantityRequestAction">
+            <forward name="success" path="/DisplayPage.jsp"/>
+            <forward name="notsuccess" path="/QuantityRequest.jsp"/>
+        </action>
+        <action path="/DeleteQuantityRequestAction" type="com.myapp.action.DeleteQuantityRequestAction">
+            <forward name="success" path="/ViewVegetable1Action.do"/>
+        </action>
+        <action  input="/Booking1.jsp" name="ViewAvailableQuantityActionForm" path="/ViewAvailableQuantityAction" type="com.myapp.action.ViewAvailableQuantityAction">
+            <forward name="success" path="/Booking1.jsp"/>
+        </action>
+        
+     
+
+       
+       
+    </action-mappings>
+    
+    <controller processorClass="org.apache.struts.tiles.TilesRequestProcessor"/>
+
+    <message-resources parameter="com/myapp/struts/ApplicationResource"/>
+    
+    <!-- ========================= Tiles plugin ===============================-->
+    <!--
+    This plugin initialize Tiles definition factory. This later can takes some
+    parameters explained here after. The plugin first read parameters from
+    web.xml, thenoverload them with parameters defined here. All parameters
+    are optional.
+    The plugin should be declared in each struts-config file.
+    - definitions-config: (optional)
+    Specify configuration file names. There can be several comma
+    separated file names (default: ?? )
+    - moduleAware: (optional - struts1.1)
+    Specify if the Tiles definition factory is module aware. If true
+    (default), there will be one factory for each Struts module.
+    If false, there will be one common factory for all module. In this
+    later case, it is still needed to declare one plugin per module.
+    The factory will be initialized with parameters found in the first
+    initialized plugin (generally the one associated with the default
+    module).
+    true : One factory per module. (default)
+    false : one single shared factory for all modules
+    - definitions-parser-validate: (optional)
+    Specify if xml parser should validate the Tiles configuration file.
+    true : validate. DTD should be specified in file header (default)
+    false : no validation
+
+    Paths found in Tiles definitions are relative to the main context.
+    -->
+    <plug-in className="org.apache.struts.tiles.TilesPlugin" >
+        <set-property property="definitions-config" value="/WEB-INF/tiles-defs.xml" />
+        <set-property property="moduleAware" value="true" />
+    </plug-in>
+    
+    <!-- ========================= Validator plugin ================================= -->
+    <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+        <set-property
+            property="pathnames"
+            value="/WEB-INF/validator-rules.xml,/WEB-INF/validation.xml"/>
+    </plug-in>
+  
+</struts-config>
